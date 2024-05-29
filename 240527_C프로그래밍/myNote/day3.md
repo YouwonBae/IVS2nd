@@ -137,3 +137,70 @@
         return resultArr;
     }
     ```
+
+## 구조체
+* 구조체(structure) : 서로 관련있는 여러 자료형 변수들을 묶어 만든 새로운 자료형
+* 구조체 선언과 멤버
+    ```
+    struct student{
+        /* datas */
+        int num;        // 학번 (student 구조체 멤버 1)
+        double grade;   // 학점 (student 구조체 멤버 2)
+    };
+    ```
+* 구조체 초기화
+    ```
+    struct student s2 = {202, 3.81};
+
+    s2.num = 101;
+    s2.grade = 4.43;
+    ```
+* 구조체 배열
+    ```
+    struct student sArr[3] = {  {101, "홍길동", 4.43},
+                                {102, "김길동", 3.81},
+                                {103, "박춘향", 4.04} };
+    ```
+* 구조체 반환
+    * type 선언으로 별칭 설정 가능
+    ```
+    typedef struct vision Vision;
+    ```
+    * 구조체를 반환하는 것이 가능함
+    ```
+    Vision exchange(Vision robot){
+        double temp = robot.left;
+        robot.left = robot.right;
+        robot.right = temp;
+
+        return robot;
+    }
+    ```
+* 구조체 포인터
+    * 아래 세가지 방법 모두 멤버변수에 접근 가능
+    * 포인터 연산자 -> :  포인터가 가리키는 구조체의 멤버변수
+    ```
+    struct GameInfo{
+    char* name;
+    int year;
+    int price;
+    };
+
+    typedef struct GameInfo GI;
+    GI gameInfo1;
+
+    GI* gamePtr = &gameInfo1;
+
+    gameInfo1.name
+    (*gamePtr).name
+    gamePtr->name
+    ```
+* 링크드 리스트
+    * 자기 자신의 구조체 타입 포인터를 가진 형태의 구조체
+    * 아래 형태의 구조체를 연결지어 링크드 리스트 구현 가능
+    ```
+    struct list{
+        int num;
+        struct list* next;
+    };
+    ```
