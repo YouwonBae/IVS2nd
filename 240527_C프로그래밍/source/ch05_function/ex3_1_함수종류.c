@@ -1,7 +1,7 @@
 #include <stdio.h>
 // 함수 선언
 void line(int i); //C언어는 C++과 달리 함수 오버로딩 불가
-void noArg();
+void noArg(); // 반환값도 매개변수도 없는 함수
 
 
 int main(void){
